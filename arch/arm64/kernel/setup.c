@@ -53,6 +53,7 @@
 #include <asm/efi.h>
 #include <asm/xen/hypervisor.h>
 #include <asm/mmu_context.h>
+#include <asm/system_misc.h>
 #include <asm/bootinfo.h>
 
 #ifdef CONFIG_OF_FLATTREE
