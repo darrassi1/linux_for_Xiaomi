@@ -53,14 +53,6 @@
 				bias-pull-up;
 				linux,code = <KEY_POWER>;
 			};
-
-			pm6150_resin: resin {
-				compatible = "qcom,pm8941-resin";
-				interrupts = <0x0 0x8 1 IRQ_TYPE_EDGE_BOTH>;
-				debounce = <15625>;
-				bias-pull-up;
-				status = "disabled";
-			};
 		};
 
 		pm6150_temp: temp-alarm@2400 {
@@ -96,14 +88,6 @@
 			status = "disabled";
 		};
 
-		pm6150_rtc: rtc@6000 {
-			compatible = "qcom,pm8941-rtc";
-			reg = <0x6000>, <0x6100>;
-			reg-names = "rtc", "alarm";
-			interrupts = <0x0 0x61 0x1 IRQ_TYPE_EDGE_RISING>;
-			status = "disabled";
-		};
-
 		pm6150_gpios: gpio@c000 {
 			compatible = "qcom,pm6150-gpio", "qcom,spmi-gpio";
 			reg = <0xc000>;
@@ -120,5 +104,11 @@
 		reg = <0x1 SPMI_USID>;
 		#address-cells = <1>;
 		#size-cells = <0>;
+
+		pm6150_vib: vibrator@5300 {
+			compatible = "qcom,pm6150-vib", "qcom,pmi632-vib";
+			reg = <0x5300>;
+			status = "disabled";
+		};
 	};
 };
