@@ -20,10 +20,10 @@ GZFLAGS		:=-9
 #KBUILD_CFLAGS	+=-pipe
 
 # Never generate .eh_frame
-KBUILD_CFLAGS	+= $(call cc-option,-fno-dwarf2-cfi-asm)
+KBUILD_CFLAGS	+= $(call cc-disable-warning,-fno-dwarf2-cfi-asm)
 
 # Disable FDPIC ABI
-KBUILD_CFLAGS	+= $(call cc-option,-mno-fdpic)
+KBUILD_CFLAGS	+= $(call cc-disable-warning,-mno-fdpic)
 
 # This should work on most of the modern platforms
 KBUILD_DEFCONFIG := multi_v7_defconfig
@@ -31,7 +31,7 @@ KBUILD_DEFCONFIG := multi_v7_defconfig
 # defines filename extension depending memory management type.
 ifeq ($(CONFIG_MMU),)
 MMUEXT		:= -nommu
-KBUILD_CFLAGS	+= $(call cc-option,-mno-unaligned-access)
+KBUILD_CFLAGS	+= $(call cc-disable-disable-warning,-mno-unaligned-access)
 endif
 
 ifeq ($(CONFIG_FRAME_POINTER),y)
@@ -57,7 +57,7 @@ endif
 # char struct members incorrectly. So disable it.
 # (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65932)
 #
-KBUILD_CFLAGS	+= $(call cc-option,-fno-ipa-sra)
+KBUILD_CFLAGS	+= $(call cc-disable-warning,-fno-ipa-sra)
 
 # This selects which instruction set is used.
 arch-$(CONFIG_CPU_32v7M)	:=-march=armv7-m
