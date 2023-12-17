@@ -20,7 +20,7 @@
 #include <linux/random.h>
 #include <linux/scs.h>
 #include <linux/vmalloc.h>
-
+#include <linux/compiler.h>
 #include <asm/alternative.h>
 #include <asm/insn.h>
 #include <asm/scs.h>
