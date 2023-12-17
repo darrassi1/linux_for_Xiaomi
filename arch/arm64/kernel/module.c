@@ -41,7 +41,6 @@ static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
 		return 0;
 
 	max_pgoff = (size - (end - start)) / PAGE_SIZE;
-
 	pgoff = get_random_u32_inclusive(0, max_pgoff);
 
 	return start - pgoff * PAGE_SIZE;
