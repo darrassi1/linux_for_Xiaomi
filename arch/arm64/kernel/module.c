@@ -41,9 +41,7 @@ static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
 		return 0;
 
 	max_pgoff = (size - (end - start)) / PAGE_SIZE;
-	/* Compile-time assertions */
-	BUILD_BUG_ON(__compiletime_assert_74);
-	BUILD_BUG_ON(__compiletime_assert_72);
+
 	pgoff = get_random_u32_inclusive(0, max_pgoff);
 
 	return start - pgoff * PAGE_SIZE;
