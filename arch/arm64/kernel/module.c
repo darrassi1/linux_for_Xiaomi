@@ -33,8 +33,7 @@ static u64 module_plt_base __ro_after_init = 0;
  * Choose a random page-aligned base address for a window of 'size' bytes which
  * entirely contains the interval [start, end - 1].
  */
-u64 start = 0;
-u64 end = 1;
+
 static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
 {
 
