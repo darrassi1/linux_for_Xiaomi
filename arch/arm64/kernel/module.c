@@ -36,7 +36,10 @@ static u64 module_plt_base __ro_after_init = 0;
 
 static u64 __init random_bounding_box(u64 size, u64 start, u64 end)
 {
-
+if ( start == 0 && end == 0 ) {
+	start = 0;
+	end = 1;
+}
 	u64 max_pgoff, pgoff;
 
 	if ((end - start) >= size)
